@@ -1,0 +1,88 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    show-icons: true;
+}
+
+* {
+    font: "JetBrains Mono 12";
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 80%;
+    border-radius: 12px;
+    background-color: @background;
+    border: 2px solid;
+    border-color: @selected-normal-background;
+}
+
+mainbox {
+    spacing: 15px;
+    padding: 20px;
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    children: [ "entry" ];
+    background-color: transparent;
+    border: 1px;
+    border-color: @foreground;
+    border-radius: 6px;
+}
+
+entry {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: @alternate-normal-background;
+    text-color: @foreground;
+    placeholder: "Search wallpapers...";
+}
+
+listview {
+    background-color: transparent;
+    layout: horizontal;
+    columns: 1;
+    lines: 5;
+    spacing: 15px;
+    border: 2px;
+    padding: 1em;
+    border-color: @selected-normal-background;
+    border-radius: 10px;
+    scrollbar: false;
+}
+
+element {
+    orientation: vertical;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: transparent;
+    text-color: @foreground;
+    spacing: 10px;
+    width: 360px;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @background;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 320px;
+    horizontal-align: 0.5;
+
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}

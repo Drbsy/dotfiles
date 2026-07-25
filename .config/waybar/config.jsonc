@@ -1,0 +1,161 @@
+{
+  "reload_style_on_change": true,
+  
+  "height": 40,
+  "modules-left": ["hyprland/window","wlr/taskbar"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["tray", "group/hardware", "group/system", "clock"],
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "format-alt": "{:%d %b | %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "max-length": 50
+  },
+
+  "hyprland/window": {
+      "format": "{initialClass}",
+      "separate-outputs": true,
+      "rewrite": {
+          "^$": "Desktop"
+      }
+  },
+
+  "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}% ",
+      "format-bluetooth-muted": "󰝟 {icon} ",
+      "format-muted": "󰝟",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pamixer -t"
+  },
+
+  "group/system": {
+      "orientation": "horizontal",
+      "modules": [
+        "hyprland/language", "battery", "backlight", "pulseaudio"
+      ]
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'",
+      "on-discharging": "notify-send -u normal 'Power Switch' 'Discharging'",
+      "on-charging": "notify-send -u normal 'Power Switch' 'Charging'"
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}",
+    "format-icons": {
+      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    },
+    "max-length": 25
+  },
+
+  "backlight": {
+      "device": "intel_backlight",
+      "orientation": "horizontal",
+      "min": 0,
+      "max": 100,
+      "format": "{icon} {percent}%",
+      "format-icons": [""]
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "󰍛 {}%",
+    "max-length": 10
+  },
+
+  "memory": {
+      "interval": 5,
+      "format": "  {}%",
+      "format-alt": "  {used:0.1f} GB",
+      "max-length": 10
+  },
+
+  "group/hardware": {
+      "orientation": "horizontal",
+      "modules": [
+          "cpu",
+          "memory"
+      ]
+  },
+
+  "hyprland/language": {
+    "format": "{short}",
+    "keyboard-name": "at-translated-set-2-keyboard",
+    "on-click": "hyprctl switchxkblayout current next"
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+          "default": "",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "active": "󱓻",
+          "urgent": "󱓻"
+      },
+      "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": []
+      }
+  },
+
+  "custom/saperetor": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false
+  },
+
+"wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 14,
+	"icon-theme": "Numix-Circle",
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"ignore-list": [
+	    "Alacritty"
+	],
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	},
+
+	"rewrite": {
+		"Firefox Web Browser": "Firefox",
+		"Foot Server": "Terminal"
+	}
+  }
+}

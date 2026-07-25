@@ -1,0 +1,85 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    display-drun: "Applications:";
+    display-window: "Windows:";
+    drun-display-format: "{icon} {name}";
+    modi: "window,run,drun";
+    show-icons: true;
+    icon-theme: "WhiteSur";
+    disable-history: false;
+}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0.5em;
+}
+
+window {
+    width: 45%;
+    height: 60%;
+    transparency: "real";
+    background-color: @background;
+    border: 2px;
+    border-color: @selected-normal-background; 
+    border-radius: 10px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    border: 1px;
+    border-color: @foreground;
+    border-radius: 6px;
+}
+
+prompt {
+    background-color: @alternate-normal-background;
+    padding: 12px;
+    text-color: @foreground;
+}
+
+entry {
+    background-color: @alternate-normal-background;
+    padding: 12px;
+    text-color: @foreground;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 8;
+    border: 2px;
+    padding: 1em;
+    border-color: @selected-normal-background; 
+    border-radius: 10px;
+    spacing: 8px;
+    scrollbar: false;
+}
+
+element {
+    padding: 12px;
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @background; 
+    border: 0px 0px 2px 0px;
+    border-color: @foreground; 
+    border-radius: 10px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    background-color: inherit;
+    size: 30px;
+}
+

@@ -1,0 +1,101 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    hover-select: true;
+}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+window {
+    width: 750px;
+    height: 550px;
+    transparency: "real";
+    background-color: @background;
+    border: 2px solid;
+    border-color: @selected-normal-background;
+    border-radius: 10px;
+}
+
+mainbox {
+    orientation: vertical;
+    spacing: 16px;
+    padding: 16px;
+}
+
+inputbar {
+    children: [ prompt, entry, button-clear ];
+    spacing: 10px;
+    padding: 10px 14px;
+    background-color: @alternate-normal-background;
+    border: 1px solid;
+    border-color: @foreground;
+    border-radius: 6px;
+}
+
+prompt {
+    enabled: true;
+    padding: 6px 10px;
+    background-color: @selected-normal-background;
+    text-color: @background;
+    border-radius: 4px;
+    vertical-align: 0.5;
+}
+
+entry {
+    expand: true;
+    placeholder: "Search clipboard...";
+    placeholder-color: @foreground;
+    vertical-align: 0.5;
+}
+
+button-clear {
+    expand: false;
+    content: "Clear History";
+    action: "kb-custom-1";
+    padding: 6px 12px;
+    background-color: @selected-normal-background;
+    text-color: @background;
+    border-radius: 4px;
+    vertical-align: 0.5;
+    cursor: pointer;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 12;
+    cycle: false;
+    border: 2px;
+    padding: 1em;
+    border-color: @selected-normal-background; 
+    border-radius: 10px;
+    spacing: 8px;
+    scrollbar: false;
+}
+
+element {
+    orientation: horizontal;
+    children: [ element-text ];
+    border: 0px 0px 1px 0px;
+    border-color: @selected-normal-background; 
+    padding: 8px 10px;
+    border-radius: 0px;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @background;
+    border-radius: 6px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}
