@@ -31,7 +31,7 @@
 
 ## Preview
 
-<video src="https://github.com/user-attachments/assets/e646791f-b745-42a7-a414-021538814684" controls muted width="100%"></video>
+<video src="https://github.com/user-attachments/assets/a5e416c6-4529-4c41-93d5-395cde248a11" controls muted width="100%"></video>
 
 ---
 
