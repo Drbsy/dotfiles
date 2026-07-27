@@ -11,7 +11,7 @@ theme="$HOME/.config/rofi/raci/wallpaper.rasi"
 mkdir -p "$thumb_dir"
 
 find "$wallpaper_dir" -type f \
-    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -print0 |
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) -print0 |
 xargs -0 -n 1 -P "$(nproc)" bash -c '
     thumb_dir="$1"
     img="$2"
@@ -19,12 +19,19 @@ xargs -0 -n 1 -P "$(nproc)" bash -c '
     thumb="$thumb_dir/${filename}.png"
 
     if [[ ! -f "$thumb" ]] || [[ "$img" -nt "$thumb" ]]; then
-        magick "$img" -thumbnail 320x180^ -gravity center -extent 320x180 "$thumb"
+        if [[ "${img,,}" == *.gif ]]; then
+            magick "${img}[0]" -thumbnail 320x180^ -gravity center -extent 320x180 \
+                -fill "rgba(0, 0, 0, 0.65)" -draw "roundrectangle 280,150 312,172 4,4" \
+                -fill "white" -draw "polygon 291,155 291,167 301,161" \
+                "$thumb"
+        else
+            magick "${img}[0]" -thumbnail 320x180^ -gravity center -extent 320x180 "$thumb"
+        fi
     fi
 ' _ "$thumb_dir"
 
 find "$wallpaper_dir" -type f \
-    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) |
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) |
 sort |
 while IFS= read -r img; do
     filename="${img##*/}"
