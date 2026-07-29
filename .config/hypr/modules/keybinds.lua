@@ -64,7 +64,7 @@ hl.bind("XF86AudioLowerVolume",
     hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
 
 hl.bind("XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
+    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0"))
 
 hl.bind("XF86AudioPrev",
     hl.dsp.exec_cmd("playerctl previous"))
